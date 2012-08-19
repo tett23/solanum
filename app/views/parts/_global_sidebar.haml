@@ -1,0 +1,19 @@
+-#encoding: utf-8
+
+%div.well.sidebar-nav
+  %ul.nav.nav-list
+    -unless @channels.nil?
+      %li.nav-header Channels
+      -@channels.each do |channel|
+        -current_channel = '/channels/'+URI.encode(channel.title) == env['REQUEST_PATH']
+        %li{:class=>current_channel ? 'active' : nil}
+          %a{:href=>'/channels/'+channel.title}=channel.title
+    -unless current_account.nil?
+      %li.nav-header ChannelControls
+      %li
+        %a{:href=>'/channels/new'} チャンネルの作成
+      -if params[:channel]
+        %li
+          =link_to 'メンバの追加', url(:channels, :member_add, :channel=>params[:channel])
+        %li
+          =link_to '退出する', url(:channels, :leave, :channel=>params[:channel]), :onclick=>"return confirm('本当に退出しますか');", :method=>:delete

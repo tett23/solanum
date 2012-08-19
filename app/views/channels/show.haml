@@ -1,0 +1,26 @@
+-#encoding: utf-8
+
+=stylesheet_link_tag 'client'
+=javascript_include_tag 'client'
+
+#channel_settings{:'data-channel'=>@channel[:title]}
+
+#user_info{:'data-account-id'=>current_account.id, :'data-auth-token'=>current_account.auth_token}
+
+.row
+  .span6
+    %h2 messages
+    #messages
+  .span3
+    %h2 members
+    %ul
+      -@members.each do |member|
+        %li=member.name
+
+%hr
+.row
+  .span6
+    %textarea#message
+.row
+  .span2
+    %button#submit send

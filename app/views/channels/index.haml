@@ -1,0 +1,9 @@
+-#encoding: utf-8
+
+%div.row-fluid
+  -@channels.each do |channel|
+    %div.span4
+      %h2=channel.title
+      %p=channel.description
+      %p.pull-right
+        %a.btn{:href=>'/channels/'+URI.encode(channel.title)}入る

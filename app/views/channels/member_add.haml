@@ -1,0 +1,18 @@
+-#encoding: utf-8
+
+:coffeescript
+  $ary = $('#array_ids')
+  $ary.val('1')
+
+
+%div.row-fluid
+  %div.span6
+    -form_for :members, :class=>:'form-horizontal', :method=>:post do |f|
+      %fieldset
+        .control-group
+          =f.label :members
+          .controls
+            =f.select :ids, :options=>@members, :multiple=>true
+            =f.error_message_on :title
+        .form-actions
+          =f.submit 'add', :class=>'btn btn-primary'

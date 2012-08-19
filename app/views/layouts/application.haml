@@ -1,0 +1,22 @@
+-#encoding: utf-8
+
+!!!html5
+%html{:lang=>'ja'}
+  %head
+    %meta{:charset=>'utf-8'}
+    %title solanum
+    =stylesheet_link_tag 'bootstrap.min', 'bootstrap-responsive.min', 'common', 'content'
+    =javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap.min', 'common'
+  %body
+    =partial  :'parts/global_header'
+    %div{:style=>"margin-top: 60px"}
+    %div.container
+      %h1 solanum
+      %div.row
+        %div.span3
+          =partial :'parts/global_sidebar'
+        %div.span9
+          .flash=[:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
+          =yield
+      %hr
+      %footer
