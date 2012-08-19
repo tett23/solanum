@@ -13,11 +13,4 @@ definetions do
       params[:channel].push data
     end
   end
-
-  route :'/test/:opt1/:opt2' do |params|
-  end
-
-  route :'/config' do
-
-  end
 end
