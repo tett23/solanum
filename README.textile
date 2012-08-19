@@ -1,0 +1,44 @@
+h1. Solanum
+
+チャットができるほにゃらら
+
+h2. 中身について
+
+HTTPサーバ部分はPadrino製、
+WebSocketサーバの部分はem-websocketを使用している
+
+h2. WebSocketサーバについて
+
+carolinense以下で実装されている。
+
+<pre>
+ruby carolinense/carolinense.rb -a (start|stop|restart)
+</pre>
+
+で起動。
+
+h3. WebSocketサーバの定義とか
+
+carolinense/routes以下にいろいろ書ける。
+
+<pre>
+definetions do
+  route :'設置URI' do |params|
+    処理
+  end
+end
+</pre>
+
+みたいな感じで書く。
+ヘルパも定義できて、carolinense/helpers以下に、
+
+<pre>
+definetions do
+  helpers do
+    def hoge
+    end
+  end
+end
+</pre>
+
+みたいに書く
