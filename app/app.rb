@@ -27,12 +27,6 @@ class Solanum < Padrino::Application
     end
   end
 
-
-  get '/root/test' do
-    Log.create(:channel=>"hoge", :body=>"aaaa")
-    render 'root/test'
-  end
-
   error 404 do
     render 'errors/404'
   end
